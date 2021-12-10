@@ -13,7 +13,7 @@ function App() {
       <header className="App-header">
         <ReactRoundedImage 
           image={photo} 
-          roundedColor="#ff8080"
+          roundedColor="#009966"
           imageWidth="180"
           imageHeight="180"
           roundedSize="4"
