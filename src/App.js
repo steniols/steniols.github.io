@@ -1,65 +1,39 @@
 import { AiOutlineGithub, AiFillLinkedin, AiFillInstagram } from 'react-icons/ai';
-import ReactRoundedImage from "react-rounded-image";
-import { IconContext } from "react-icons";
 import photo from './photo.png';
 import './App.css';
 
+const links = [
+  { href: 'https://gist.github.com/steniols/', label: 'GitHub', Icon: AiOutlineGithub },
+  { href: 'https://www.linkedin.com/in/stenio-leopoldo-de-souza-2b635199/', label: 'LinkedIn', Icon: AiFillLinkedin },
+  { href: 'https://www.instagram.com/steniols/', label: 'Instagram', Icon: AiFillInstagram },
+];
+
 function App() {
-
-  // const photo = require("./photo.jpg");
-
   return (
     <div className="App">
-      <header className="App-header">
-        <ReactRoundedImage 
-          image={photo} 
-          roundedColor="#009966"
-          imageWidth="180"
-          imageHeight="180"
-          roundedSize="4"
-          borderRadius="180"/>
-        <p>
-         Stenio Leopoldo de Souza
-        </p>
-        <div class="App-links">
-          <a
-            className="App-link"
-            href="https://gist.github.com/steniols/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-            <>
-              <AiOutlineGithub />
-            </>
-          </IconContext.Provider> 
-          </a>
-          <a
-            className="App-link"
-            href="https://www.linkedin.com/in/stenio-leopoldo-de-souza-2b635199/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-            <>
-              <AiFillLinkedin />
-            </>
-          </IconContext.Provider>
-          </a>
-          <a
-            className="App-link"
-            href="https://www.instagram.com/steniols/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-          <>
-              <AiFillInstagram />
-            </>
-            </IconContext.Provider>
-          </a>
+      <div className="App-glow" aria-hidden="true" />
+      <main className="App-card">
+        <div className="App-avatar">
+          <img src={photo} alt="Stenio Leopoldo de Souza" />
         </div>
-      </header>
+        <h1 className="App-name">Stenio Leopoldo de Souza</h1>
+        <p className="App-handle">@steniols</p>
+        <nav className="App-links">
+          {links.map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              className="App-link"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              title={label}
+            >
+              <Icon />
+            </a>
+          ))}
+        </nav>
+      </main>
     </div>
   );
 }
